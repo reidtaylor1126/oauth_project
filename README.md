@@ -1,5 +1,7 @@
 # OAuth Project
 
+A project to test possible course material exploring OAuth and related authorization/authentication tools.
+
 ## Setup and Usage Instructions
 
 For first-time setup:
@@ -10,5 +12,6 @@ For first-time setup:
 
 | Task                         | Hours |
 |------------------------------|-------|
-| Lab 1 (Environment Setup)    | 1.5   |
-| Task 1 (Basic Web Interface) |       |
+| Lab 1 (Environment Setup)    | 1     |
+| Task 1 (Basic Web Interface) | 24    |
+| Task 2 (OAuth Integration)   | 20    |

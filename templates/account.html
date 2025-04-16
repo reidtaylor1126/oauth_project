@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <h1 id="welcome">Welcome!</h1>
+  <p id="email"></p>
+
+  <form name="changePasswordForm" action="*">
+    <div class="form-row">
+      <h3 class="form-title">Change Password</h3>
+    </div>
+    <div class="form-row">
+      <label for="password1">Password</label>
+      <input id="password1" name="password1" type="password"/>
+    </div>
+    <div class="form-row">
+      <label for="password2">Password(Again)</label>
+      <input id="password2" name="password2" type="password"/>
+    </div>
+    <div class="form-row">
+      <label for="newPassword">New Password</label>
+      <input id="newPassword" name="newPassword" type="password"/>
+    </div>
+    <div class="form-row">
+      <input id="submitButton" type="button" value="Change Password" onclick="attemptChangePW();">
+    </div>
+  </form>
+
+  <input type="button" value="Log Out" onclick="logOut();">
+
+  <script src="static/utils.js"></script>
+  <script src="static/account.js"></script>
+</body>
+</html>

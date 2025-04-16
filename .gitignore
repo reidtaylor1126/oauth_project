@@ -1,3 +1,7 @@
 .env
 .idea/
 .venv/
+__pycache__/
+*.googleusercontent.com.json
+*.secret
+*.json

@@ -1,0 +1,27 @@
+.form-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+}
+
+.form-title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+label {
+    width: 6rem;
+    margin-right: 1rem;
+}
+
+form {
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-style: outset;
+    border-width: 2px;
+}
+
+input {
+    margin-right: 1rem;
+}

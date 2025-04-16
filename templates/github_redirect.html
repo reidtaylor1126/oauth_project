@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <script>
+    const urlParams = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    })
+
+    console.log(urlParams)
+
+    const task = urlParams.task;
+    const token = urlParams.token;
+    document.cookie = `token=${token}`;
+
+    if (task === "register") {
+        const thirdParty = urlParams.thirdParty;
+        document.cookie = `thirdParty=${thirdParty}`
+        const name = urlParams.name;
+        if (name != null) {
+            document.cookie = `name=${name}`
+        }
+        const email = urlParams.email;
+        if (email != null) {
+            document.cookie = `email=${email}`
+        }
+        window.location.replace("register_third_party")
+
+    } else if (task === "login") {
+        document.cookie = `userId=${urlParams.userId}`;
+        window.location.replace("account")
+    }
+  </script>
+</body>
+</html>

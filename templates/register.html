@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/style.css">
+  <title>Register an account</title>
+</head>
+<body>
+  <script src="static/utils.js"></script>
+  <script src="static/register.js"></script>
+  <meta name="google-signin-client_id" content="1004179830955-0mqma8jkkkf53sp0tjdc9ok9e7pfk9hd.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <h2>Register an account:</h2>
+  <form name="registerForm" action="*">
+    <div class="form-row">
+      <label for="username">Full Name</label>
+      <input id="username" name="username" type="text"/>
+    </div>
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email"/>
+    </div>
+    <div class="form-row">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password"/>
+    </div>
+    <div class="form-row">
+      <input id="submitButton" type="button" value="Create account" onclick="attemptRegister();">
+      <input type="button" onclick="githubOAuth();" value="Sign in with GitHub">
+    </div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  </form>
+  <a href="login">Log into an existing account</a>
+</body>
+</html>
