@@ -50,6 +50,17 @@ class DB:
     def find_by_github(self, token: str):
         return self.find_by_x(q_get_user_by_github, token)
 
+    def find_by_google(self, token: str):
+        return self.find_by_x(q_get_user_by_google, token)
+
+    def update_github(self, user_id, token):
+        self.cursor.execute(q_update_user_github, (token, user_id))
+        self.conn.commit()
+
+    def update_google(self, user_id, token):
+        self.cursor.execute(q_update_user_google, (token, user_id))
+        self.conn.commit()
+
     def put_token(self, user_id, token, expire_time):
         self.cursor.execute(q_put_token, (token, expire_time, user_id))
         self.conn.commit()
@@ -88,6 +99,20 @@ class DB:
             self.conn.commit()
 
             return self.find_by_github(github_token)
+
+    def create_with_google(self, email: str, fullname: str, password: str, google_token: str):
+
+        if self.user_exists(email):
+            return None
+
+        else:
+            salt = bcrypt.gensalt()
+            passhash = bcrypt.hashpw(password.encode(), salt)
+            params = (email, fullname, passhash, salt, google_token)
+            self.cursor.execute(add_from_google, params)
+            self.conn.commit()
+
+            return self.find_by_google(google_token)
 
     def login_user(self, email: str, password: str):
         account = self.find_by_email(email)

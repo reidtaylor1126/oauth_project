@@ -34,7 +34,8 @@ function finishRegistration() {
             fullname: fields[0],
             email: fields[1],
             password: fields[2],
-            gh_token: cookies.token
+            third_party_token: cookies.token,
+            third_party: cookies.thirdParty
         }
 
         fetch("http://localhost:5000/registerFromExternal", {
@@ -46,7 +47,11 @@ function finishRegistration() {
             }
         }).then((res) => {
             console.log(res.status)
-            document.location.replace("account")
+            res.json().then((data) => {
+                // console.log(data)
+                document.cookie = `token=${data.token}`
+                document.location.replace("account")
+            })
         })
     }
 }

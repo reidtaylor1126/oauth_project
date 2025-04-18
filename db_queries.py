@@ -23,6 +23,11 @@ add_from_github = ("INSERT INTO `site_users` "
             "VALUES (%s, %s, %s, %s, %s);"
             )
 
+add_from_google = ("INSERT INTO `site_users` "
+            "(email, fullname, passhash, salt, google_token)"
+            "VALUES (%s, %s, %s, %s, %s);"
+            )
+
 q_get_user_by_email = "SELECT * FROM `site_users` WHERE email = (%s);"
 
 q_get_user_by_id = "SELECT * FROM `site_users` WHERE user_id = (%s);"
@@ -32,6 +37,16 @@ q_get_user_by_token = ("SELECT * FROM `site_users` "
                        "expires > NOW();")
 
 q_get_user_by_github = "SELECT * FROM `site_users` WHERE github_token = (%s)"
+
+q_get_user_by_google = "SELECT * FROM `site_users` WHERE google_token = (%s)"
+
+q_update_user_github = ("UPDATE `site_users`"
+                        "SET github_token (%s)"
+                        "WHERE user_id = (%s)")
+
+q_update_user_google = ("UPDATE `site_users`"
+                        "SET google_token (%s)"
+                        "WHERE user_id = (%s)")
 
 q_put_token = ("UPDATE `site_users` "
             "SET token = (%s), expires = (%s)"
